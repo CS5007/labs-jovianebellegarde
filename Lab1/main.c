@@ -6,6 +6,7 @@
 /* This assignment is a guessing game. The program needs to guess a game between 1 and 500.
  * Going to need to use a for loop since we are giving them 5 attempts to make a guess.
  * May need to use a function to get this to work.
+ * Source: https://www.cplusplus.com/reference/cstdlib/rand/
  */
 
 #include <stdio.h>
@@ -42,8 +43,7 @@ int main() {
 	srand(time(NULL));
 	
 	// generating random number from range 1 to 1000
-	int randomNumber = rand() % 1000;
-	printf("Random: %d", randomNumber);
+	int randomNumber = rand() % 500 + 1;
 
 	//calling the play round function here
 	playRound(randomNumber);
