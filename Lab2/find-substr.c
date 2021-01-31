@@ -17,17 +17,10 @@ void find_occurance(char* haystack, char* needle) {
 	
 	while ((haystack = strstr(haystack, needle)) != NULL) {
 		haystack += strlen(needle);
-		count++;	
-	}
+		count++;
+		}	
 	printf("Found %d occurrences of the substring:'%s'\n", count, needle);
-	
-	for (int i = 0; i <= strlen(haystack); i++) {
-		if (haystack[i] == needle[i]) {
-			printf("yup\n");
-		}
-	}  	
-
-}	
+}
 
 
 int main() {
