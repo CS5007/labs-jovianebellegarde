@@ -11,11 +11,23 @@ void find_occurance(char* haystack, char* needle) {
 	char* position = strstr(haystack, needle);
 	
 	// the only works for first position :/
-
+	/*
 	if (position) {
 		printf("Occurrence found at position: %ld\n", position - haystack);	
 	} else {
 		printf("Occurrence not found!\n");
+	}
+	*/
+	
+	int occurrence = 0;
+	for (int i = 0; i <= strlen(haystack); i++) {
+		if (haystack[i] && haystack[i + 1] == needle[i] && needle[i + 1]) {
+			occurrence++;
+			printf("Found %d occurrences of the substring: %s\n",occurrence, needle);
+			printf("Occurence found at position: %d\n", haystack[i]);
+		} else {
+			printf("Occurence not found!\n");
+		}
 	}
 	
 }	
