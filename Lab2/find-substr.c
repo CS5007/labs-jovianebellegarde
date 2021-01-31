@@ -14,11 +14,19 @@ void find_occurance(char* haystack, char* needle) {
 	// the only works for first position 
 
 	int count = 0;
+	
 	while ((haystack = strstr(haystack, needle)) != NULL) {
 		haystack += strlen(needle);
-		count++;
+		count++;	
 	}
-	printf("Found %d occurrences of the substring: %s\n", count, needle);
+	printf("Found %d occurrences of the substring:'%s'\n", count, needle);
+	
+	for (int i = 0; i <= strlen(haystack); i++) {
+		if (haystack[i] == needle[i]) {
+			printf("yup\n");
+		}
+	}  	
+
 }	
 
 
@@ -31,7 +39,7 @@ int main() {
 	char needle2[] = "Jovi";
 	
 	find_occurance(haystack, needle1);
-	find_occurance(haystack, needle2);
+	//find_occurance(haystack, needle2);
 
 	return 0;
 }
