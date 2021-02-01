@@ -1,6 +1,5 @@
 // Joviane Bellegarde
-// Used https://www.tutorialspoint.com/c_standard_library/c_function_strcmp.htm for reference
-
+// Used https://stackoverflow.com/a/54890557/10424762 for reference
 
 #include <stdio.h>
 #include <string.h>
