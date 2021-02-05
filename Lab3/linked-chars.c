@@ -6,7 +6,7 @@
 
 
 int main() {
-
+	/*
 	int x = 4;
 	printf("x is stored at %p\n", &x);
 	
@@ -18,4 +18,7 @@ int main() {
 
 	*address_of_x = 99;
 	printf("The value of x is %d\n", *address_of_x);
+	*/
+
+	
 }
