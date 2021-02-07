@@ -2,10 +2,14 @@
 //
 //
 //
-# include <stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#define CHAR 26;
+
 
 typedef struct node{
-	int letter;
+	char data;
+	int position;
 	struct node* next;
 }node_t;
 
@@ -13,9 +17,28 @@ typedef struct node{
 
 void findCharacter(node_t* node) {
 	node_t* itr = node;
-	
+		
 
 }
+
+
+node_t* makeNode(char data) {
+	node_t* newNode = (node_t*)malloc(sizeof(node_t));
+	if (newNode == NULL) {
+		return NULL;	
+	}
+	newNode->data = data;
+	printf("%c", data);
+	return newNode;
+}
+
+void freeNode(node_t* node) {
+	if (node == NULL) {
+		return;
+	}
+	free(node);
+}
+
 
 
 int main() {
@@ -24,19 +47,15 @@ int main() {
 	filePointer = fopen("alphabet.txt", "r");
 	char buffer;// holds character values
 	
-	node_t nodeA;
-	node_t nodeB;
-	node_t nodeC;
+	node_t* nodeA = NULL;
+	
+	
 	while(1 == fscanf(filePointer, "%c", &buffer)) {
-		nodeA.letter = 'a';
-		nodeB.letter = 'b';
-		nodeC.letter = 'c';
-
-		nodeA.next = &nodeB;
-		nodeB.next = &nodeC;
-		nodeC.next = NULL;
+		printf("%c", buffer);
+		
+		makeNode(buffer);		
 	}
-	findCharacter(&nodeA);
+	//findCharacter(
 	fclose(filePointer);
 	return 0;	
 }
