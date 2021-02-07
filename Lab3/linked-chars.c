@@ -11,7 +11,7 @@ typedef struct node{
 	int position;
 	struct node* next;
 }node_t;
-
+/*
 void findCharacter(node_t* node, char character) {
 	node_t* itr = node;
 	while (itr != NULL) {
@@ -24,14 +24,14 @@ void findCharacter(node_t* node, char character) {
 	}		
 
 }
-
+*/
 node_t* makeNode(char data) {
 	node_t* newNode = (node_t*)malloc(sizeof(node_t));
 	if (newNode == NULL) {
 		return NULL;	
 	}
 	newNode->data = data;
-	printf("%c", data);
+	printf("Letter: %c\n", data);
 	return newNode;
 }
 
@@ -52,7 +52,7 @@ int main() {
 	
 	
 	while(1 == fscanf(filePointer, "%c", &buffer)) {
-		printf("%c", buffer);
+	//	printf("%c", buffer);
 		
 		makeNode(buffer);		
 	}
