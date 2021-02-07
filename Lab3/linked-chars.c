@@ -4,11 +4,18 @@
 //
 # include <stdio.h>
 
-typedef struct ll_node {
-	int position;
-	char* letter;
+typedef struct node{
+	int letter;
 	struct node* next;
-}ll_node_t;
+}node_t;
+
+
+
+void findCharacter(node_t* node) {
+	node_t* itr = node;
+	
+
+}
 
 
 int main() {
@@ -17,14 +24,19 @@ int main() {
 	filePointer = fopen("alphabet.txt", "r");
 	char buffer;// holds character values
 	
-	struct node* alpha;
-	
-
+	node_t nodeA;
+	node_t nodeB;
+	node_t nodeC;
 	while(1 == fscanf(filePointer, "%c", &buffer)) {
-		struct node* next;
+		nodeA.letter = 'a';
+		nodeB.letter = 'b';
+		nodeC.letter = 'c';
 
-		 
+		nodeA.next = &nodeB;
+		nodeB.next = &nodeC;
+		nodeC.next = NULL;
 	}
+	findCharacter(&nodeA);
 	fclose(filePointer);
 	return 0;	
 }
