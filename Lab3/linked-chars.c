@@ -12,9 +12,16 @@ typedef struct node{
 	struct node* next;
 }node_t;
 
-void findCharacter(node_t* node) {
+void findCharacter(node_t* node, char character) {
 	node_t* itr = node;
-		
+	while (itr != NULL) {
+		itr = itr->next;
+		if (itr == character){
+			printf("found it\n");
+		} else {
+			printf("This character does not exist in the alphabet.\n");
+		}
+	}		
 
 }
 
