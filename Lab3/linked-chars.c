@@ -6,21 +6,17 @@
 #include <stdlib.h>
 #define CHAR 26;
 
-
 typedef struct node{
 	char data;
 	int position;
 	struct node* next;
 }node_t;
 
-
-
 void findCharacter(node_t* node) {
 	node_t* itr = node;
 		
 
 }
-
 
 node_t* makeNode(char data) {
 	node_t* newNode = (node_t*)malloc(sizeof(node_t));
@@ -38,8 +34,6 @@ void freeNode(node_t* node) {
 	}
 	free(node);
 }
-
-
 
 int main() {
 
