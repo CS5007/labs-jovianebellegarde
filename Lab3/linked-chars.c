@@ -11,27 +11,27 @@ typedef struct node{
 	int position;
 	struct node* next;
 }node_t;
-/*
-void findCharacter(node_t* node, char character) {
+
+void findCharacter(node_t* node, char* character) {
 	node_t* itr = node;
 	while (itr != NULL) {
-		itr = itr->next;
 		if (itr == character){
 			printf("found it\n");
 		} else {
 			printf("This character does not exist in the alphabet.\n");
 		}
+		itr = itr->next;
 	}		
 
 }
-*/
-node_t* makeNode(char data) {
+
+node_t* createNode(char data) {
 	node_t* newNode = (node_t*)malloc(sizeof(node_t));
 	if (newNode == NULL) {
 		return NULL;	
 	}
 	newNode->data = data;
-	printf("Letter: %c\n", data);
+	//printf("Letter: %c\n", data);
 	return newNode;
 }
 
@@ -52,11 +52,12 @@ int main() {
 	
 	
 	while(1 == fscanf(filePointer, "%c", &buffer)) {
-	//	printf("%c", buffer);
+		//printf("Letter: %c\n", buffer);
 		
-		makeNode(buffer);		
+		createNode(buffer);		
 	}
 	//findCharacter(
 	fclose(filePointer);
+	freeNode(nodeA);
 	return 0;	
 }
