@@ -4,7 +4,8 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
-#define CHAR 26;
+#include <string.h>
+
 
 typedef struct node{
 	char data;
@@ -45,19 +46,27 @@ void freeNode(node_t* node) {
 int main() {
 
 	FILE* filePointer;
+//	filePointer = fopen("alphabet.txt", "r");
+
 	filePointer = fopen("alphabet.txt", "r");
-	char buffer;// holds character values
 	
-	node_t* nodeA = NULL;
+	int size = 26;
+	char* buffer = malloc(sizeof(char*)size);
 	
 	
-	while(1 == fscanf(filePointer, "%c", &buffer)) {
+	}
+	fclose(filePointer);
+	//node_t* nodeA = NULL;
+	
+	
+	//while(1 == fscanf(filePointer, "%c", &buffer)) {
 		//printf("Letter: %c\n", buffer);
 		
-		createNode(buffer);		
+		//createNode(buffer);		
 	}
 	//findCharacter(
-	fclose(filePointer);
-	freeNode(nodeA);
+//	fclose(filePointer);
+//	freeNode(nodeA);
 	return 0;	
 }
+*/
