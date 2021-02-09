@@ -5,33 +5,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node {
+typedef struct node {
 	char data;
 	struct node* next;
-	int position;
-}letter;
+	struct node* previous;
+}letter_t;
 
 
 typedef struct nodeList{
-        struct node* next;
-	letter* head;
-	letter* tail;
+        int count;
+	letter_t* head;
+	letter_t* tail;
 	// doubly linked list --> want to know what comes before and after with DLL
 	
 }alphabet;
 
 
-
+/*
 node_t* createNode(char data, alphabet letter) {
         node_t* newNode = (node_t*)malloc(sizeof(node_t));
         if (newNode == NULL) {
                 return NULL;    
         }
         newNode->data = data;
-        printf("Letter: %c\n", data);
+        printf("Letter: %c", data);
         return newNode;
 }
-
+*/
 int main() {
 	
 	FILE* filePointer = fopen("alphabet.txt", "r");
@@ -39,14 +39,10 @@ int main() {
 	char buffer;
 	int count = 0;
 
-//	struct node* head = NULL;
-//	struct node*;
 
 	while (1 == fscanf(filePointer, "%c\n", &buffer)) {
-	//	head->data = "%c";
-	//	head->next = NULL;
 		
-		//printf("%c\n", buffer);
+		printf("%c\n", buffer);
 		// make a createNode function
 		// create add node to list function, taking 2 arguments (linked list, and buffer)
 	
