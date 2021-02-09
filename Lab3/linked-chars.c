@@ -4,9 +4,59 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+
+struct node {
+	char data;
+	struct node* next;
+	int position;
+}letter;
 
 
+typedef struct nodeList{
+        struct node* next;
+	letter* head;
+	letter* tail;
+	// doubly linked list --> want to know what comes before and after with DLL
+	
+}alphabet;
+
+
+
+node_t* createNode(char data, List letter) {
+        node_t* newNode = (node_t*)malloc(sizeof(node_t));
+        if (newNode == NULL) {
+                return NULL;    
+        }
+        newNode->data = data;
+        printf("Letter: %c\n", data);
+        return newNode;
+}
+
+int main() {
+	
+	FILE* filePointer = fopen("alphabet.txt", "r");
+	
+	char buffer;
+	int count = 0;
+
+//	struct node* head = NULL;
+//	struct node*;
+
+	while (1 == fscanf(filePointer, "%c\n", &buffer)) {
+	//	head->data = "%c";
+	//	head->next = NULL;
+		
+		//printf("%c\n", buffer);
+		// make a createNode function
+		// create add node to list function, taking 2 arguments (linked list, and buffer)
+	
+	}
+	// ask for character input
+	// findCharacter(linked list, user input)
+	// create position
+}
+
+/*
 typedef struct node{
 	char data;
 	int position;
@@ -69,4 +119,4 @@ int main() {
 	freeNode(nodeA);
 	return 0;	
 }
-
+*/
