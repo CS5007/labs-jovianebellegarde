@@ -22,7 +22,7 @@ typedef struct nodeList{
 
 
 
-node_t* createNode(char data, List letter) {
+node_t* createNode(char data, alphabet letter) {
         node_t* newNode = (node_t*)malloc(sizeof(node_t));
         if (newNode == NULL) {
                 return NULL;    
