@@ -32,7 +32,7 @@ node_t* createNode(char data) {
 		return NULL;	
 	}
 	newNode->data = data;
-	//printf("Letter: %c\n", data);
+	printf("Letter: %c\n", data);
 	return newNode;
 }
 
@@ -56,17 +56,17 @@ int main() {
 	
 	}
 	fclose(filePointer);
-	//node_t* nodeA = NULL;
+	node_t* nodeA = NULL;
 	
 	
-	//while(1 == fscanf(filePointer, "%c", &buffer)) {
-		//printf("Letter: %c\n", buffer);
+	while(1 == fscanf(filePointer, "%c", &buffer)) {
+		printf("Letter: %c\n", buffer);
 		
-		//createNode(buffer);		
+		createNode(buffer);		
 	}
 	//findCharacter(
 //	fclose(filePointer);
-//	freeNode(nodeA);
+	freeNode(nodeA);
 	return 0;	
 }
-*/
+
