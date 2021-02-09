@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct node {
+typedef struct node{
 	char data;
 	struct node* next;
 	struct node* previous;
@@ -20,18 +20,17 @@ typedef struct nodeList{
 	
 }alphabet;
 
-
-/*
-node_t* createNode(char data, alphabet letter) {
-        node_t* newNode = (node_t*)malloc(sizeof(node_t));
+//letter_t* createNode(char data, alphabet letter)
+letter_t* createNode(char data) {
+        letter_t* newNode = (letter_t*)malloc(sizeof(letter_t));
         if (newNode == NULL) {
                 return NULL;    
         }
         newNode->data = data;
-        printf("Letter: %c", data);
+       // printf("Letter: %c", data);
         return newNode;
 }
-*/
+
 int main() {
 	
 	FILE* filePointer = fopen("alphabet.txt", "r");
@@ -42,8 +41,10 @@ int main() {
 
 	while (1 == fscanf(filePointer, "%c\n", &buffer)) {
 		
-		printf("%c\n", buffer);
+		printf("Letter: %c\n", buffer);
 		// make a createNode function
+		letter_t* alpha = createNode(buffer);		
+		//printf("node added\n");
 		// create add node to list function, taking 2 arguments (linked list, and buffer)
 	
 	}
