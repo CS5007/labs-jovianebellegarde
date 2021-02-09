@@ -18,7 +18,7 @@ typedef struct nodeList{
 	letter_t* tail;
 	// doubly linked list --> want to know what comes before and after with DLL
 	
-}alphabet;
+}alist_t;
 
 //letter_t* createNode(char data, alphabet letter)
 letter_t* createNode(char data) {
@@ -31,15 +31,24 @@ letter_t* createNode(char data) {
        	return newNode; 
 }
 
-void printNodes(letter_t* node) {
+alist_t* makeList(letter_t* node, buffer) {
+	alist_t* newList = (alist_t*)malloc(sizeof(alist_t));
+	if (newList == NULL) {
+		return;
+	}
+	newList->head = NULL;
+	newList->tail = NULL;
+	newList->count = 0;
+	return newList;
+}
 
+void printNodes(letter_t* node) {
 	letter_t* itr = node;
 	while (itr  != NULL) {
 		printf("Letter: %c\n", itr->data);
 		itr = itr->next;
 	}
 	//printf("\n");
-
 }
 
 int main() {
@@ -49,7 +58,6 @@ int main() {
 	char buffer;
 	int count = 0;
 
-
 	while (1 == fscanf(filePointer, "%c\n", &buffer)) {
 		
 //		printf("Letter: %c\n", buffer);
@@ -58,9 +66,11 @@ int main() {
 		printNodes(node);
 		//letter_t* alpha = createNode(buffer);
 		// create add node to list function, taking 2 arguments (linked list, and buffer)
+		alist_t* list = makeList(node, buffer);				
 				
 	}
 	// ask for character input
+	//
 	// findCharacter(linked list, user input)
 	// create position
 }
