@@ -27,8 +27,19 @@ letter_t* createNode(char data) {
                 return NULL;    
         }
         newNode->data = data;
-        printf("Letter: %c\n", data);
+        //printf("Letter: %c\n", data);
        	return newNode; 
+}
+
+void printNodes(letter_t* node) {
+
+	letter_t* itr = node;
+	while (itr  != NULL) {
+		printf("Letter: %c\n", itr->data);
+		itr = itr->next;
+	}
+	//printf("\n");
+
 }
 
 int main() {
@@ -44,9 +55,10 @@ int main() {
 //		printf("Letter: %c\n", buffer);
 		// make a createNode function
 		letter_t* node = createNode(buffer);
+		printNodes(node);
 		//letter_t* alpha = createNode(buffer);
 		// create add node to list function, taking 2 arguments (linked list, and buffer)
-			
+				
 	}
 	// ask for character input
 	// findCharacter(linked list, user input)
