@@ -31,10 +31,10 @@ letter_t* createNode(char data) {
        	return newNode; 
 }
 
-alist_t* makeList(letter_t* node, buffer) {
+alist_t* makeList(letter_t* node,char buffer) {
 	alist_t* newList = (alist_t*)malloc(sizeof(alist_t));
 	if (newList == NULL) {
-		return;
+		return NULL;
 	}
 	newList->head = NULL;
 	newList->tail = NULL;
@@ -51,91 +51,52 @@ void printNodes(letter_t* node) {
 	//printf("\n");
 }
 
-int main() {
+void freeNode(letter_t* node) {
+        if (node == NULL) {
+                return;
+        }
+        free(node);
+}
+
+/*
+void findCharacter(letter_t* node, char character) {
+	if (node == NULL) {
+		return;
+	}
+
+	while (itr != NULL) {
+		if (character == node) {
+			printf("Found it\n");
+		}
+	}
+}
+*/
+
+
+int main() {	
+	char character;
+	printf("Enter a letter from a through z\n");
+	scanf("%c", &character);
 	
 	FILE* filePointer = fopen("alphabet.txt", "r");
 	
 	char buffer;
 	int count = 0;
 
+	letter_t* node;
 	while (1 == fscanf(filePointer, "%c\n", &buffer)) {
 		
 //		printf("Letter: %c\n", buffer);
 		// make a createNode function
-		letter_t* node = createNode(buffer);
-		printNodes(node);
+		node = createNode(buffer);
+	//	printNodes(node);
 		//letter_t* alpha = createNode(buffer);
 		// create add node to list function, taking 2 arguments (linked list, and buffer)
-		alist_t* list = makeList(node, buffer);				
-				
+		alist_t* list = makeList(node, buffer);								
 	}
-	// ask for character input
-	//
-	// findCharacter(linked list, user input)
-	// create position
-}
-
-/*
-typedef struct node{
-	char data;
-	int position;
-	struct node* next;
-}node_t;
-
-void findCharacter(node_t* node, char* character) {
-	node_t* itr = node;
-	while (itr != NULL) {
-		if (itr == character){
-			printf("found it\n");
-		} else {
-			printf("This character does not exist in the alphabet.\n");
-		}
-		itr = itr->next;
-	}		
-
-}
-
-node_t* createNode(char data) {
-	node_t* newNode = (node_t*)malloc(sizeof(node_t));
-	if (newNode == NULL) {
-		return NULL;	
-	}
-	newNode->data = data;
-	printf("Letter: %c\n", data);
-	return newNode;
-}
-
-void freeNode(node_t* node) {
-	if (node == NULL) {
-		return;
-	}
-	free(node);
-}
-
-int main() {
-
-	FILE* filePointer;
-//	filePointer = fopen("alphabet.txt", "r");
-
-	filePointer = fopen("alphabet.txt", "r");
-	
-	int size = 26;
-	char* buffer = malloc(sizeof(char*)size);
-	
-	
-	}
+//	findCharacter(list, character);
 	fclose(filePointer);
-	node_t* nodeA = NULL;
-	
-	
-	while(1 == fscanf(filePointer, "%c", &buffer)) {
-		printf("Letter: %c\n", buffer);
-		
-		createNode(buffer);		
-	}
-	//findCharacter(
-//	fclose(filePointer);
-	freeNode(nodeA);
-	return 0;	
+	freeNode(node);
+//	free(node);
 }
-*/
+
