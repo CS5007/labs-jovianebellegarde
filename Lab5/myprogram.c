@@ -1,4 +1,5 @@
 // Joviane Bellegarde
+// Add other commands to this code
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -19,6 +20,7 @@ int main() {
 	} else {
 		wait(NULL);
 		printf("This always prints last\n");
+	
 
 	}
 	return 0;	
