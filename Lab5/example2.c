@@ -1,3 +1,7 @@
+// Joviane Bellegarde
+/* This is a zombie process as the child process was still running
+ * and the parent had to wait for the child process to exit.
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>

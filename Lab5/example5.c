@@ -1,3 +1,8 @@
+// Joviane Bellegarde
+/* When removing the "bin" from myargv[0], the message
+ * "Child: should never get here" prints because
+ * that is the program we told execve to run
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -6,7 +11,7 @@
 
 int main(){
 	char* myargv[16];	// We can store up to 16 arguments.
-	myargv[0]="ls";	// Our first argument is the program we want to launch.
+	myargv[0]="/bin/ls";	// Our first argument is the program we want to launch.
 	myargv[1]="-F";		// Any additional arguments (i.e. flags) we want to make use of.
 	myargv[2]=NULL; 	// Terminate the argument list--similar to how we would terminate a character string.
 				// (i.e. Set the last argument to NULL if we have no more flags.)
