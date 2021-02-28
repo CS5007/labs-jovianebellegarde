@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 // Modify your paint function here
-void paint(...) {
+void paint(int workdID) {
 	printf("Artist %d is painting\n", wordID);
 }
 
@@ -23,8 +23,10 @@ int main(int argc, char** argv) {
 		// (2) Make only the child do some work (i.e pain) and then terminate.
 		if (pid == 0) {
 			// TODO: make child paint
+			printf("The child is painting\n");
+			paint(getpid());
 			// TODO: Then terminate/exit child
-
+			exit(0);
 	
 
 		}
