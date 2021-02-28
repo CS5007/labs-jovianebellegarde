@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 // Modify your paint function here
-void paint(int workdID) {
+void paint(int workID) {
 	printf("Artist %d is painting\n", workID);
 }
 
