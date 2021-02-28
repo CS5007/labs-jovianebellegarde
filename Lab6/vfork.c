@@ -7,7 +7,7 @@
 
 // Modify your paint function here
 void paint(int workdID) {
-	printf("Artist %d is painting\n", wordID);
+	printf("Artist %d is painting\n", workID);
 }
 
 int main(int argc, char** argv) {
