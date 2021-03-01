@@ -22,13 +22,11 @@ int main(int argc, char** argv) {
 
 		// (2) Make only the child do some work (i.e pain) and then terminate.
 		if (pid == 0) {
-			// TODO: make child paint
+			// Child is calling paint
 			printf("The child is painting\n");
 			paint(getpid());
-			// TODO: Then terminate/exit child
+			// Exiting child
 			exit(0);
-	
-
 		}
 	}
 	printf("parent is exiting(last artist out!)\n");
