@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
 // Modify your paint function here
 void paint(int workID) {
@@ -21,8 +22,13 @@ int main(int argc, char** argv) {
 	pid_t pid;
 	// main loop where we fork new threads
 	for(int i = 0; i < numberOfArtists; i++) {
+		pid_t wpid;
+		int status = 0;
+		while ((wpid = wait(&status)) > 0);
+
+
 		// (1) Perform a fork
-		pid = vfork();
+		pid = fork();
 
 		// (2) Make only the child do some work (i.e pain) and then terminate.
 		if (pid == 0) {
