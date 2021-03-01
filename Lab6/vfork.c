@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
 		// (2) Make only the child do some work (i.e pain) and then terminate.
 		if (pid == 0) {
 			// Child is calling paint
-			paint(getpid());
+			paint(i);
 
 			// Exiting child
 			exit(0);
