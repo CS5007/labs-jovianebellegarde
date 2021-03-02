@@ -11,6 +11,10 @@ char colors[64][64 * 3];
 // Modify your paint function here
 void paint(int workID) {
 	printf("Artist %d is painting\n", workID);
+	
+	for (int i = 0; i < 64 * 3; i++) {
+		colors[workID][i] = workID; // TODO: do something interesting
+	}	
 }
 
 void save() {
@@ -19,8 +23,8 @@ void save() {
 	fputs("P3\n", filePointer);
 	fputs("64 64\n", filePointer);
 	fputs("255\n", filePointer);
-	for(int i = 0; i < 64; i++){
-		for(int j = 0; j < 64 * 3; j++){
+	for (int i = 0; i < 64; i++) {
+		for(int j = 0; j < 64 * 3; j++) { 
 			fprintf(filePointer, "%d", colors[i][j]);
 			fputs(" ", filePointer);		
 		}
@@ -38,7 +42,7 @@ int main(int argc, char** argv) {
 
 	pid_t pid;
 	// main loop where we fork new threads
-	for(int i = 1; i <= numberOfArtists; i++) {
+	for (int i = 1; i <= numberOfArtists; i++) {
 		// (1) Perform a fork
 		pid = vfork();
 
@@ -50,13 +54,14 @@ int main(int argc, char** argv) {
 			// Exiting child
 			exit(0);
 		}
+		printf("Child created: %d\n", pid);
 	}
 	// Going to have the parent wait
         pid_t wpid;
         int status = 0;
         while ((wpid = wait(&status)) > 0);
 	printf("parent is exiting (last artist out!)\n");
-
+	printf("Masterpiece (vfork.ppm) is being assembled\n");
 	save();
 
 	free(integers);	
