@@ -6,19 +6,35 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
+char colors[64][64 * 3];
+
 // Modify your paint function here
 void paint(int workID) {
 	printf("Artist %d is painting\n", workID);
 }
 
-char colors[64][64 * 3]
+void save() {
+	FILE *filePointer;
+	filePointer = fopen("vfork.ppm", "w+");
+	fputs("P3\n", filePointer);
+	fputs("64 64\n", filePointer);
+	fputs("255\n", filePointer);
+	for(int i = 0; i < 64; i++){
+		for(int j = 0; j < 64 * 3; j++){
+			fprintf(filePointer, "%d", colors[i][j]);
+			fputs(" ", filePointer);		
+		}
+		fputs("\n",filePointer);
+	}
+	fclose(filePointer);
+}
 
 int main(int argc, char** argv) {
 	
 	// malloc an integer array of 8000
 	int* integers = malloc(sizeof(int)* 8000);	
 
-	int numberOfArtists = 8; // How many child processes do we want?
+	int numberOfArtists = 64; // How many child processes do we want?
 
 	pid_t pid;
 	// main loop where we fork new threads
@@ -40,6 +56,8 @@ int main(int argc, char** argv) {
         int status = 0;
         while ((wpid = wait(&status)) > 0);
 	printf("parent is exiting (last artist out!)\n");
+
+	save();
 
 	free(integers);	
 	return 0;
