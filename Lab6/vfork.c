@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
 	// main loop where we fork new threads
 	for(int i = 1; i <= numberOfArtists; i++) {
 		// (1) Perform a fork
-		pid = fork();
+		pid = vfork();
 
 		// (2) Make only the child do some work (i.e pain) and then terminate.
 		if (pid == 0) {
