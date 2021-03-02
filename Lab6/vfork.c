@@ -13,8 +13,9 @@ void paint(int workID) {
 	printf("Artist %d is painting\n", workID);
 	
 	for (int i = 0; i < 64 * 3; i++) {
-		colors[workID][i] = workID; // TODO: do something interesting
-	}	
+		colors[workID][i] = workID;
+	}
+	printf("Next color\n");
 }
 
 void save() {
